@@ -2,10 +2,15 @@
 
 A simple web app for optimizing AI prompts using Google Gemini. Type in a basic prompt and get back a better, more detailed version that works great with any AI tool.
 
+## Demo
+
+https://github.com/user-attachments/assets/af24f28c-83d4-4cf3-b742-ca95c1cdf006
+
 ## Table of Contents
 
 - [What is this](#what-is-this)
 - [Features](#features)
+- [Security Features](#security-features)
 - [Tech Stack](#tech-stack)
 - [Setup](#setup)
 - [How to Use](#how-to-use)
@@ -24,6 +29,24 @@ PromptPower helps you write better prompts for AI chatbots. Instead of spending 
 - **Keyboard Shortcut** - Press Ctrl+Enter (or Cmd+Enter on Mac) to optimize without clicking
 - **Dark Theme** - Clean black interface that's easy on the eyes
 - **Persistent Storage** - Your history stays even after you close the browser
+
+## Security Features
+
+Built with production-ready security measures to protect your data and prevent abuse:
+
+- **Rate Limiting** - IP-based rate limiting prevents API abuse (10 requests per minute per user). Stops malicious users from overloading the service and exhausting API quotas.
+
+- **Input Validation** - All user inputs are validated on both client and server side. Checks for minimum/maximum length, detects malicious patterns like script injection attempts, and sanitizes data before processing.
+
+- **API Key Protection** - Gemini API key is stored server-side only in environment variables. Never exposed to the client browser or included in any API responses. Protected by .gitignore to prevent accidental commits.
+
+- **XSS Prevention** - Prevents cross-site scripting attacks through input sanitization and safe output encoding. Dangerous HTML/JavaScript patterns are detected and blocked before processing.
+
+- **Error Handling** - Generic error messages shown to users to prevent information leakage. Detailed errors logged server-side only. No stack traces or sensitive data exposed in responses.
+
+- **CORS Protection** - API endpoints restricted to authorized domains only. Prevents unauthorized websites from making requests to your API.
+
+These security implementations follow industry best practices and make the application safe for production deployment.
 
 ## Tech Stack
 
