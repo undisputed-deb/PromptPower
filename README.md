@@ -2,9 +2,13 @@
 
 A simple web app for optimizing AI prompts using Google Gemini. Type in a basic prompt and get back a better, more detailed version that works great with any AI tool.
 
-## Demo
 
-[Video will be added here - Upload your demo video by editing this README on GitHub]
+
+
+
+https://github.com/user-attachments/assets/15fe362e-ae86-4a1a-b7d0-83811772a73c
+
+
 
 ## Table of Contents
 
