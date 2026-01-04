@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: 'Optimize your AI prompts with Google Gemini. Clean, minimal, and powerful.',
   keywords: ['AI', 'prompt', 'optimization', 'Gemini', 'ChatGPT', 'Claude'],
   authors: [{ name: 'PromptPower' }],
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'PromptPower - AI Prompt Optimizer',
     description: 'Optimize your AI prompts with Google Gemini',
