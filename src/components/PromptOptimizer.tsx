@@ -245,14 +245,14 @@ export default function PromptOptimizer() {
 
       {/* Freestyle Mode */}
       {mode === 'freestyle' && (
-        <div className="space-y-6">
+        <div className="space-y-6 animate-slide-down">
           {/* Input Section */}
           <div className="space-y-3">
             <div className="flex items-baseline justify-between">
-              <label htmlFor="input" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+              <label htmlFor="input" className="text-xs uppercase tracking-wider text-accent font-light animate-fade-in">
                 Input
               </label>
-              <span className={`text-xs font-mono ${isNearLimit ? 'text-accent' : 'text-text-dim'}`}>
+              <span className={`text-xs font-mono ${isNearLimit ? 'text-accent animate-glow' : 'text-text-dim'}`}>
                 {charCount}/{MAX_CHARS}
               </span>
             </div>
@@ -266,27 +266,28 @@ export default function PromptOptimizer() {
               maxLength={MAX_CHARS}
               className="
                 w-full h-48 px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary font-mono text-sm
                 placeholder:text-text-dim placeholder:font-sans
                 resize-none
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Image Upload Section */}
           <div className="space-y-3">
-            <label className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label className="text-xs uppercase tracking-wider text-accent font-light">
               Upload Image (Optional)
             </label>
 
             {uploadedImage ? (
-              <div className="relative border border-border p-4">
+              <div className="relative border-2 border-accent p-4 animate-slide-down">
                 <button
                   onClick={removeImage}
-                  className="absolute top-2 right-2 px-3 py-1 bg-accent text-bg-primary text-xs uppercase tracking-wider hover:bg-text-primary transition-colors duration-200"
+                  className="absolute top-2 right-2 px-3 py-1 bg-accent text-bg-primary text-xs uppercase tracking-wider hover:bg-text-primary hover:scale-105 transition-all duration-200"
                 >
                   Remove
                 </button>
@@ -304,9 +305,9 @@ export default function PromptOptimizer() {
                   onChange={handleImageUpload}
                   className="hidden"
                 />
-                <div className="border-2 border-dashed border-border hover:border-border-hover transition-colors duration-200 px-6 py-12 text-center">
+                <div className="border-2 border-dashed border-border hover:border-accent hover:shadow-lg hover:shadow-accent/10 transition-all duration-200 px-6 py-12 text-center group">
                   <svg
-                    className="mx-auto h-12 w-12 text-text-dim"
+                    className="mx-auto h-12 w-12 text-text-dim group-hover:text-accent transition-colors duration-200"
                     stroke="currentColor"
                     fill="none"
                     viewBox="0 0 48 48"
@@ -318,7 +319,7 @@ export default function PromptOptimizer() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <p className="mt-4 text-xs text-text-secondary uppercase tracking-wider">
+                  <p className="mt-4 text-xs text-text-secondary group-hover:text-accent uppercase tracking-wider transition-colors duration-200">
                     Click to upload image
                   </p>
                   <p className="mt-2 text-xs text-text-dim">
@@ -333,10 +334,10 @@ export default function PromptOptimizer() {
 
       {/* Structured Mode */}
       {mode === 'structured' && (
-        <div className="space-y-6">
+        <div className="space-y-6 animate-slide-down">
           {/* Role */}
           <div className="space-y-2">
-            <label htmlFor="role" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="role" className="text-xs uppercase tracking-wider text-accent font-light">
               Role <span className="text-accent">*</span>
             </label>
             <input
@@ -347,18 +348,19 @@ export default function PromptOptimizer() {
               placeholder="e.g., Expert Python developer, Marketing copywriter, Data analyst"
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Context */}
           <div className="space-y-2">
-            <label htmlFor="context" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="context" className="text-xs uppercase tracking-wider text-accent font-light">
               Context <span className="text-text-dim">(Optional)</span>
             </label>
             <textarea
@@ -369,19 +371,20 @@ export default function PromptOptimizer() {
               rows={3}
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
                 resize-none
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Task / Prompt */}
           <div className="space-y-2">
-            <label htmlFor="task" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="task" className="text-xs uppercase tracking-wider text-accent font-light">
               Task / Prompt <span className="text-accent">*</span>
             </label>
             <textarea
@@ -392,19 +395,20 @@ export default function PromptOptimizer() {
               rows={4}
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
                 resize-none
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Output Format */}
           <div className="space-y-2">
-            <label htmlFor="outputFormat" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="outputFormat" className="text-xs uppercase tracking-wider text-accent font-light">
               Output Format <span className="text-text-dim">(Optional)</span>
             </label>
             <input
@@ -415,18 +419,19 @@ export default function PromptOptimizer() {
               placeholder="e.g., JSON, Markdown, Bullet points, Step-by-step guide"
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Constraints */}
           <div className="space-y-2">
-            <label htmlFor="constraints" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="constraints" className="text-xs uppercase tracking-wider text-accent font-light">
               Constraints <span className="text-text-dim">(Optional)</span>
             </label>
             <textarea
@@ -437,19 +442,20 @@ export default function PromptOptimizer() {
               rows={3}
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
                 resize-none
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Examples */}
           <div className="space-y-2">
-            <label htmlFor="examples" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="examples" className="text-xs uppercase tracking-wider text-accent font-light">
               Examples <span className="text-text-dim">(Optional)</span>
             </label>
             <textarea
@@ -460,19 +466,20 @@ export default function PromptOptimizer() {
               rows={3}
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
                 resize-none
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
 
           {/* Tone */}
           <div className="space-y-2">
-            <label htmlFor="tone" className="text-xs uppercase tracking-wider text-text-secondary font-light">
+            <label htmlFor="tone" className="text-xs uppercase tracking-wider text-accent font-light">
               Tone <span className="text-text-dim">(Optional)</span>
             </label>
             <input
@@ -483,11 +490,12 @@ export default function PromptOptimizer() {
               placeholder="e.g., Professional, Casual, Friendly, Technical, Creative"
               className="
                 w-full px-4 py-3
-                bg-bg-primary border border-border
+                bg-bg-primary border-2 border-border
                 text-text-primary text-sm
                 placeholder:text-text-dim
-                focus:border-accent
-                transition-colors duration-200
+                focus:border-accent focus:shadow-lg focus:shadow-accent/20
+                hover:border-border-hover
+                transition-all duration-200
               "
             />
           </div>
@@ -507,13 +515,13 @@ export default function PromptOptimizer() {
         disabled={loading || (mode === 'freestyle' ? !inputPrompt.trim() : !role.trim() || !task.trim())}
         className={`
           w-full px-6 py-4
-          bg-bg-primary border border-border
+          bg-bg-primary border-2 border-border
           text-sm uppercase tracking-wider font-light
-          transition-all duration-150
+          transition-all duration-200
           disabled:opacity-30 disabled:cursor-not-allowed
           ${loading
-            ? 'animate-border-pulse'
-            : 'hover:bg-text-primary hover:text-bg-primary hover:border-text-primary'
+            ? 'animate-border-pulse border-accent text-accent'
+            : 'hover:bg-accent hover:text-bg-primary hover:border-accent hover:shadow-lg hover:shadow-accent/30 hover:scale-[1.02]'
           }
         `}
       >
